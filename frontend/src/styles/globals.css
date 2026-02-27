@@ -1,0 +1,103 @@
+/* ── Design Tokens ────────────────────────────────────────────── */
+:root {
+  --bg:         #08080d;
+  --surface:    #0f0f17;
+  --surface2:   #161620;
+  --surface3:   #1e1e2a;
+  --border:     #252535;
+  --border2:    #313148;
+
+  --accent:     #ff3d5a;
+  --accent-dim: rgba(255, 61, 90, 0.12);
+  --accent2:    #6d28d9;
+  --green:      #10b981;
+  --green-dim:  rgba(16, 185, 129, 0.12);
+  --gold:       #f59e0b;
+  --red:        #ef4444;
+  --blue:       #3b82f6;
+
+  --text:       #f0f0f8;
+  --text2:      #a8a8c0;
+  --muted:      #5c5c78;
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'Instrument Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  --radius-sm:  8px;
+  --radius-md:  12px;
+  --radius-lg:  18px;
+  --radius-xl:  24px;
+
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-hover: 0 16px 48px rgba(255, 61, 90, 0.12);
+}
+
+/* ── Reset ────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: var(--font-body); }
+img { display: block; }
+ul, ol { list-style: none; }
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
+
+/* ── Animations ───────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* ── Utility classes ──────────────────────────────────────────── */
+.fade-up  { animation: fadeUp  0.4s ease both; }
+.fade-in  { animation: fadeIn  0.3s ease both; }
+
+.stagger > *:nth-child(1) { animation: fadeUp 0.4s 0.05s ease both; }
+.stagger > *:nth-child(2) { animation: fadeUp 0.4s 0.10s ease both; }
+.stagger > *:nth-child(3) { animation: fadeUp 0.4s 0.15s ease both; }
+.stagger > *:nth-child(4) { animation: fadeUp 0.4s 0.20s ease both; }
+.stagger > *:nth-child(5) { animation: fadeUp 0.4s 0.25s ease both; }
+.stagger > *:nth-child(6) { animation: fadeUp 0.4s 0.30s ease both; }
+.stagger > *:nth-child(7) { animation: fadeUp 0.4s 0.35s ease both; }
+.stagger > *:nth-child(8) { animation: fadeUp 0.4s 0.40s ease both; }
+
+/* Skeleton loading shimmer */
+.skeleton {
+  background: linear-gradient(90deg, var(--surface2) 25%, var(--surface3) 50%, var(--surface2) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}

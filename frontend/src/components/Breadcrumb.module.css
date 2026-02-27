@@ -1,0 +1,13 @@
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 28px;
+  font-size: 13px;
+}
+.item { display: flex; align-items: center; gap: 4px; }
+.link { color: var(--text2); transition: color 0.2s; }
+.link:hover { color: var(--text); }
+.sep { color: var(--muted); }
+.current { color: var(--text); font-weight: 600; }
